@@ -10,31 +10,35 @@ all: $(DIRNAME).exe test
 
 %.exe: %.c
 	@echo "Building: $<"
-	$(CC) -o $@ $<
+	@$(CC) -o $@ $<
 
 %.exe: %.cpp
 	@echo "Building: $<"
-	$(CXX) -o $@ $<
+	@$(CXX) -o $@ $<
 
 %.exe: %.java
 	@echo "Building: $<"
-	javac $<
-	echo "java $< | dos2unix" | sed -e 's/.java//;' > $@
-	chmod +x $@
+	@javac $<
+	@echo "java $< | dos2unix" | sed -e 's/.java//;' > $@
+	@chmod -v +x $@
 
 %.exe: %.sh
 	@echo "Linking: $<"
-	ln -s $< $@
-	chmod +x $@
+	@ln -sv $< $@
+	@chmod -v +x $@
 
 %.exe: %.sql
 	@echo "Creating: $@"
-	touch $@
-	chmod +x $@
+	@touch $@
+	@chmod -v +x $@
 
 .PHONY: clean
 clean:
 	@rm -fv *.class *.exe
+
+.PHONY: veryclean
+veryclean: clean
+	@rm -fv *.stackdump
 
 .PHONY: test
 test: $(DIRNAME).exe

@@ -1,5 +1,5 @@
 SUBDIRS := $(wildcard */.)
-TOPTARGETS := all clean test
+TOPTARGETS := all clean test veryclean
 
 .PHONY: all
 all: $(SUBDIRS)
@@ -10,5 +10,5 @@ $(TOPTARGETS): $(SUBDIRS)
 .PHONY: $(SUBDIRS)
 $(SUBDIRS):
 	@echo "Entering: $(@D)"
-	$(MAKE) -C $@ $(MAKECMDGOALS)
+	@$(MAKE) -C $@ $(MAKECMDGOALS)
 	@echo "Leaving: $(@D)"
