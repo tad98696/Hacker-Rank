@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Solution {
+public class JavaOutputFormatting {
 
     public static void main(String[] args) {
             Scanner sc=new Scanner(System.in);
@@ -10,6 +10,7 @@ public class Solution {
                 String s1=sc.next();
                 int x=sc.nextInt();
                 //Complete this line
+                System.out.printf("%-15s%03d%n", s1, x);
             }
             System.out.println("================================");
 
