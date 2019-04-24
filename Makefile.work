@@ -26,7 +26,7 @@ test: $(DIRNAME).exe
 	  echo "Test case: $${test}: Running"; \
 	  cat $${input} | \
 	    ./$(DIRNAME).exe | \
-	    diff - <(sed -e '$$a\' output$${test}.txt); \
+	    diff <(sed -e '$$a\' /dev/stdin) <(sed -e '$$a\' output$${test}.txt); \
 	  retval=$$?; \
 	  echo -n "Test case: $${test}: "; \
 	  case $${retval} in \
