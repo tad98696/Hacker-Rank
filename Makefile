@@ -1,5 +1,5 @@
 SUBDIRS := $(wildcard */.)
-TOPTARGETS := all clean
+TOPTARGETS := all clean test
 
 .PHONY: all
 all: $(SUBDIRS)
