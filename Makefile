@@ -9,5 +9,6 @@ $(TOPTARGETS): $(SUBDIRS)
 
 .PHONY: $(SUBDIRS)
 $(SUBDIRS):
-	echo $@
+	@echo "Entering: $(@D)"
 	$(MAKE) -C $@ $(MAKECMDGOALS)
+	@echo "Leaving: $(@D)"

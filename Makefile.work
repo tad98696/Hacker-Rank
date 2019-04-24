@@ -9,12 +9,15 @@ ERROR := "\e[41mERROR\e[49m"
 all: $(DIRNAME).exe test
 
 %.exe: %.c
+	@echo "Building: $<"
 	$(CC) -o $@ $<
 
 %.exe: %.cpp
+	@echo "Building: $<"
 	$(CXX) -o $@ $<
 
 %.exe: %.sh
+	@echo "Linking: $<"
 	ln -s $< $@
 	chmod +x $@
 
