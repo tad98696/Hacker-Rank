@@ -1,9 +1,13 @@
+SUBDIRS := $(wildcard */.)
+TOPTARGETS := all clean
+
 .PHONY: all
-all: PlayingWithCharacters
+all: $(SUBDIRS)
 
-PlayingWithCharacters.exe:
-	$(GCC) -o PlayingWithCharacters.exe PlayingWithCharacters.c
+.PHONY: $(TOPTARGETS)
+$(TOPTARGETS): $(SUBDIRS)
 
-.PHONY: clean
-clean:
-	@rm -fv *.exe
+.PHONY: $(SUBDIRS)
+$(SUBDIRS):
+	echo $@
+	$(MAKE) -C $@ $(MAKECMDGOALS)
