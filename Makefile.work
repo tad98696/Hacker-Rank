@@ -16,6 +16,12 @@ all: $(DIRNAME).exe test
 	@echo "Building: $<"
 	$(CXX) -o $@ $<
 
+%.exe: %.java
+	@echo "Building: $<"
+	javac $<
+	echo "java $< | dos2unix" | sed -e 's/.java//;' > $@
+	chmod +x $@
+
 %.exe: %.sh
 	@echo "Linking: $<"
 	ln -s $< $@
@@ -23,7 +29,7 @@ all: $(DIRNAME).exe test
 
 .PHONY: clean
 clean:
-	@rm -fv *.exe
+	@rm -fv *.class *.exe
 
 .PHONY: test
 test: $(DIRNAME).exe
