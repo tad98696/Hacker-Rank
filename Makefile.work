@@ -11,6 +11,9 @@ all: $(DIRNAME).exe test
 %.exe: %.c
 	$(CC) -o $@ $<
 
+%.exe: %.cpp
+	$(CXX) -o $@ $<
+
 .PHONY: clean
 clean:
 	@rm -fv *.exe
