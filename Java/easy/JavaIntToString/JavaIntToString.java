@@ -1,6 +1,6 @@
 import java.util.*;
 import java.security.*;
-public class Solution {
+public class JavaIntToString {
  public static void main(String[] args) {
 
   DoNotTerminate.forbidExit();
@@ -12,6 +12,7 @@ public class Solution {
    //String s=???; Complete this line below
 
    //Write your code here
+   String s = Integer.toString(n);
 
 
    if (n == Integer.parseInt(s)) {
