@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-public class Solution {
+public class JavaLoopsI {
 
 
 
@@ -17,5 +17,9 @@ public class Solution {
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
         scanner.close();
+
+        for(int i = 1; i <= 10; ++i) {
+          System.out.printf("%d x %d = %d%n", N, i, N*i);
+        }
     }
 }
