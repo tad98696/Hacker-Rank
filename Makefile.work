@@ -14,6 +14,10 @@ all: $(DIRNAME).exe test
 %.exe: %.cpp
 	$(CXX) -o $@ $<
 
+%.exe: %.sh
+	ln -s $< $@
+	chmod +x $@
+
 .PHONY: clean
 clean:
 	@rm -fv *.exe
