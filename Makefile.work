@@ -42,13 +42,19 @@ veryclean: clean
 
 .PHONY: test
 test: $(DIRNAME).exe
-	@for input in $$(ls input* 2>/dev/null); do \
-	  test=$${input#input}; \
+	@if [ $$(ls input* 2>/dev/null | wc -l) -gt 0 ]; then \
+	  testdir="./"; \
+	elif [ $$(ls ../input* 2>/dev/null | wc -l) -gt 0 ]; then \
+	  testdir="../"; \
+	fi; \
+	for input in $$(ls $${testdir}input* 2>/dev/null); do \
+	  path=$${input%%/*}; \
+	  test=$${input##.*input}; \
 	  test=$${test%.txt}; \
 	  echo "Test case: $${test}: Running"; \
 	  cat $${input} | \
 	    ./$(DIRNAME).exe | \
-	    diff <(sed -e '$$a\' /dev/stdin) <(sed -e '$$a\' output$${test}.txt); \
+	    diff <(sed -e '$$a\' /dev/stdin) <(sed -e '$$a\' $${path}/output$${test}.txt); \
 	  retval=$$?; \
 	  echo -n "Test case: $${test}: "; \
 	  case $${retval} in \
