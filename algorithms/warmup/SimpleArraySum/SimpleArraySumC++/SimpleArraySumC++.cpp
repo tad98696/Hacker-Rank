@@ -11,7 +11,11 @@ int simpleArraySum(vector<int> ar) {
 	/*
 	 * Write your code here.
 	 */
-
+  int sum = 0;
+  for(vector<int>::iterator it = ar.begin(); it != ar.end(); ++it) {
+    sum += *it;
+  }
+  return(sum);
 }
 
 int main()
