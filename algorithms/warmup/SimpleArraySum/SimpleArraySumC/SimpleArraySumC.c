@@ -16,7 +16,12 @@ int simpleArraySum(int ar_count, int* ar) {
 	/*
 	 * Write your code here.
 	 */
+  int sum = 0;
+  for (int i = 0; i < ar_count; ++i) {
+    sum += ar[i];
+  }
 
+  return(sum);
 }
 
 int main()
