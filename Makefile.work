@@ -27,6 +27,11 @@ all: $(DIRNAME).exe test
 	ln -s $< $@
 	chmod +x $@
 
+%.exe: %.sql
+	@echo "Creating: $@"
+	touch $@
+	chmod +x $@
+
 .PHONY: clean
 clean:
 	@rm -fv *.class *.exe
