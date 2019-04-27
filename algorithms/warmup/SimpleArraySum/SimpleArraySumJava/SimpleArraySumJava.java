@@ -4,7 +4,7 @@ import java.text.*;
 import java.util.*;
 import java.util.regex.*;
 
-public class Solution {
+public class SimpleArraySumJava {
 
 	/*
 	 * Complete the simpleArraySum function below.
@@ -13,7 +13,15 @@ public class Solution {
 		/*
 		 * Write your code here.
      */
-
+    int sum = 0;
+    for(int i = 0; i < ar.length; ++i) {
+      sum += ar[i];
+    }
+    try {
+      Thread.sleep(10000);
+    } catch (InterruptedException e) {
+    }
+    return(sum);
   }
 
   private static final Scanner scanner = new Scanner(System.in);
