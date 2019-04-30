@@ -10,12 +10,21 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-public class Solution {
+public class CompareTheTripletsJava {
 
   // Complete the compareTriplets function below.
   static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
-
-
+    List<Integer> result = Arrays.asList(0, 0);
+    if(a.size() != b.size()) return(result);
+    for(int i = 0; i < a.size(); ++i) {
+      if(a.get(i) > b.get(i)) {
+        result.set(0, result.get(0) + 1);
+      }
+      else if(a.get(i) < b.get(i)) {
+        result.set(1, result.get(1) + 1);
+      }
+    }
+    return(result);
   }
 
   public static void main(String[] args) throws IOException {
