@@ -44,8 +44,23 @@ char** split_string(char*);
  *
  */
 int* compareTriplets(int a_count, int* a, int b_count, int* b, int* result_count) {
-
-
+  int * result = malloc(2 * sizeof(int));
+  if(a_count != b_count) {
+    *result_count = 0;
+    return(result);
+  }
+  else {
+    *result_count = 2;
+  }
+  for(int i = 0; i < a_count; ++i) {
+    if(a[i] > b[i]) {
+      *(result + 0) += 1;
+    }
+    else if(a[i] < b[i]) {
+      *(result + 1) += 1;
+    }
+  }
+  return(result);
 }
 
 int main()
