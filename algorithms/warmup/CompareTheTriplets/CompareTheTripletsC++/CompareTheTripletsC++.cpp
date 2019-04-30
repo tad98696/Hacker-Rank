@@ -8,8 +8,21 @@ vector<string> split(const string &);
 
 // Complete the compareTriplets function below.
 vector<int> compareTriplets(vector<int> a, vector<int> b) {
-
-
+  vector<int> result(2, 0);
+  if(a.size() != b.size()) return(result);
+  {
+    vector<int>::iterator ita = a.begin();
+    vector<int>::iterator itb = b.begin();
+    for(; ita != a.end(), itb != b.end(); ++ita, ++itb) {
+      if(*ita > *itb) {
+        result[0]++;
+      }
+      else if(*ita < *itb) {
+        result[1]++;
+      }
+    }
+  }
+  return(result);
 }
 
 int main()
