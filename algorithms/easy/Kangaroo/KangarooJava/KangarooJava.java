@@ -6,12 +6,30 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-public class Solution {
+public class KangarooJava {
 
   // Complete the kangaroo function below.
   static String kangaroo(int x1, int v1, int x2, int v2) {
+    Boolean order = (x1 < x2);
 
+    String nostr = "NO";
+    String yesstr = "YES";
 
+    if ((x1 > x2) && (v1 > v2)) {
+      return(nostr);
+    } else if ((x2 > x1) && (v2 > v1)) {
+      return(nostr);
+    }
+
+    while (((x1 < x2) == order) && x1 != x2) {
+      x1 += v1;
+      x2 += v2;
+    }
+    if (x1 == x2) {
+      return(yesstr);
+    }
+
+    return(nostr);
   }
 
   private static final Scanner scanner = new Scanner(System.in);
