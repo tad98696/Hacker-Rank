@@ -1,0 +1,13 @@
+6 6
+<tag0>
+</tag0>
+<tag1 value="HelloWorld" foo="bar">
+<tag2  name  =  "Name1"  name  =  "Name2"  >
+</tag2>
+</tag1>
+tag0~whee
+tag1.tag2~name
+tag1~name
+tag1~value
+tag1~foo
+tag1.foo
